@@ -1,0 +1,199 @@
+/* media */
+
+$xxl: 1700px;
+$xl: 1440px;
+$lg: 1200px;
+$md: 991px;
+$sm: 767px;
+$xs: 576px;
+$ss: 320px;
+
+$f_xl: 1440px;
+$f_lg: 1200px;
+$f_md: 992px;
+$f_sm: 768px;
+$f_xs: 577px;
+$f_ss: 320px;
+
+@mixin respond-to($media) {
+	@if $media == xxl {
+		@media only screen and (max-width: $xxl) { @content; }
+	}
+	@if $media == xl {
+		@media only screen and (max-width: $xl) { @content; }
+	}
+	@else if $media == lg {
+		@media only screen and (max-width: $lg) { @content; }
+	}
+	@else if $media == md {
+		@media only screen and (max-width: $md) { @content; }
+	}
+	@else if $media == sm {
+		@media only screen and (max-width: $sm) { @content; }
+	}
+	@else if $media == xs {
+		@media only screen and (max-width: $xs) { @content; }
+	}
+	@else if $media == ss {
+		@media only screen and (max-width: $ss) { @content; }
+	}
+}
+
+@mixin respond-from($media) {
+	@if $media == xl {
+		@media only screen and (min-width: $f_xl) { @content; }
+	}
+	@else if $media == lg {
+		@media only screen and (min-width: $f_lg) { @content; }
+	}
+	@else if $media == md {
+		@media only screen and (min-width: $f_md) { @content; }
+	}
+	@else if $media == sm {
+		@media only screen and (min-width: $f_sm) { @content; }
+	}
+	@else if $media == xs {
+		@media only screen and (min-width: $f_xs) { @content; }
+	}
+	@else if $media == ss {
+		@media only screen and (max-width: $f_ss) { @content; }
+	}
+}
+
+/* max-width */
+
+@include respond-to(xxl) {
+
+}
+
+@include respond-to(xl) {
+
+}
+
+@include respond-to(lg) {
+
+}
+
+@include respond-to(md) {
+
+}
+
+@include respond-to(sm) {
+
+}
+
+@include respond-to(xs) {
+
+}
+
+@include respond-to(ss) {
+
+}
+
+/* min-width */
+
+@include respond-from(f_xl) {
+
+}
+
+@include respond-from(f_lg) {
+
+}
+
+@include respond-from(f_md) {
+
+}
+
+@include respond-from(f_sm) {
+
+}
+
+@include respond-from(f_xs) {
+
+}
+
+@include respond-from(f_ss) {
+
+}
+
+
+/* FONTS */
+
+@mixin fontface($name, $file, $weight, $style){
+	@font-face {
+		font-family: "#{$name}";
+		font-weight: $weight;
+		font-style: $style;
+
+		src: url('../fonts/#{$file}.eot');
+		src: url('../fonts/#{$file}.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/#{$file}.woff') format('woff'),
+				 url('../fonts/#{$file}.ttf') format('truetype');
+	}
+}
+
+/* SVG Socails Animation */
+@mixin animateSvg($class, $color) {
+	.#{$class}:hover path {
+		&:not(.filled) {
+			fill: #fff;
+		}
+		&.filled {
+			fill: $color;
+		}
+	}
+}
+
+// SVG Before
+
+@mixin bg-before($class, $name) {
+	&#{$class}::before {
+		background-image: url('../img/icons/activity/#{$name}.svg');
+	}
+}
+
+// *** View Ports ***//
+@function view($pxsize, $media) {
+
+	@if $media == xxl {
+		$media: $xxl;
+	}
+	@else if $media == xl {
+		$media: $xl;
+	}
+	@else if $media == lg {
+		$media: $lg;
+	}
+	@else if $media == md {
+		$media: $md;
+	}
+	@else if $media == sm {
+		$media: $sm;
+	}
+	@else if $media == xs {
+		$media: $xs;
+	}
+	@else if $media == ss {
+		$media: $ss;
+	}
+	@else if $media == f_xl {
+		$media: $f_xl;
+	}
+	@else if $media == f_lg {
+		$media: $f_lg;
+	}
+	@else if $media == f_md {
+		$media: $f_md;
+	}
+	@else if $media == f_sm {
+		$media: $f_sm;
+	}
+	@else if $media == f_xs {
+		$media: $f_xs;
+	}
+	@else if $media == f_ss {
+		$media: $f_ss;
+	}
+
+	@return $pxsize/($media/100)+vw;
+}

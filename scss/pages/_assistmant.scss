@@ -1,0 +1,152 @@
+.assistmant .main {
+  overflow: visible;
+}
+
+.assitmant-header  {
+  .header__menu-link {
+    color: #1A1D3E;
+  }
+
+  .header__logo svg path {
+    fill: #1A1D3E;
+  }
+
+  .header__logo svg circle + path {
+    fill: url(#paint0_linear);
+  }
+
+  .header__logo svg circle + path + path {
+    fill: #fff;
+  }
+
+  .header__menu-arrow svg path {
+    stroke: #1A1D3E;
+  }
+}
+
+
+.assistmant-main {
+  background-color: #F7F9FA;
+
+  .main-title-wrap {
+    height: auto;
+  }
+
+  .main-section__partners {
+    display: none;
+  }
+}
+
+.for-what {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__left-column {
+    width: 68.21%;
+  }
+
+  &__right-column {
+    width: 31.79%;
+    min-height: 310px;
+    position: sticky;
+    top: 160px;
+  }
+
+  &__section {
+    padding-bottom: 80px;
+    max-width: 680px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -1px;
+    color: #1A1D3E;
+    margin-bottom: 24px;
+    max-width: 592px;
+  }
+
+  &__description {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7589A5;
+    margin-bottom: 33px;
+    max-width: 592px;
+  }
+
+  &__s-list {
+    padding: 40px 48px 40px 40px;
+    margin-top: 40px;
+  }
+
+  &__s-item {
+    margin-bottom: 80px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__tab:first-child .for-what__tab-link {
+    padding-top: 0;
+  }
+
+  &__tab-link {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #7589A5;
+  }
+}
+
+.s-item {
+  &__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    color: #1A1D3E;
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #7589A5;
+    margin-bottom: 23px;
+    max-width: 555px;
+  }
+
+  &__btn {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+    color: #007AFF;
+    padding: 15px 24px;
+    border: 1px solid #007AFF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    transition: all $ease;
+
+    &:hover {
+      background-color: #007AFF;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.tab-link--active {
+  color: #1A1D3E;
+  border-bottom: 2px solid #007AFF;
+}

@@ -1,0 +1,149 @@
+@import 'veriabel';
+
+
+
+@include fontface($Graphik, Graphik-Medium, 500, normal);
+@include fontface($Graphik, Graphik-Regular, 400, normal);
+
+* {
+  box-sizing: border-box;
+
+
+  &:focus {
+    outline: none;
+  }
+}
+
+body {
+  font-family: $Graphik;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  transition: $delay;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  transition: $delay;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1062px;
+  padding: 0 15px;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 78px;
+  line-height: 78px;
+  letter-spacing: -2.5px;
+  color: $dark-blue;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 52px;
+  letter-spacing: -1px;
+  color: $dark-blue;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 32px;
+  color: $dark-blue;
+}
+
+.primary-btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.3px;
+  border-radius: 4px;
+  font-family: $Graphik;
+  background-color: $light-blue;
+  color: $white;
+  transition: $delay;
+
+  &:hover {
+    background-color: $grey;
+  }
+
+  &_small {
+    padding: 15px 24px;
+  }
+
+  &_medium {
+    padding: 19px 32px;
+  }
+
+  &_large {
+    padding: 23px 48px;
+  }
+}
+
+.label {
+  display: table;
+  padding: 6px 10px;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 12px;
+  border-radius: 4px;
+  font-family: $Graphik;
+  background-color: $light-blue;
+  color: $white;
+  text-transform: uppercase;
+
+  &_light {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.main {
+  display: block;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all $ease;
+}
+
+.overlay--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
