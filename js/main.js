@@ -233,7 +233,6 @@ $(document).ready(function() {
                 viewError(input, template);
             } else {
                 v = input.val();
-                console.log(v);
             }
         }
 
