@@ -1,0 +1,169 @@
+.web .main {
+  overflow: visible;
+  margin-top: 114px;
+}
+
+.web .header {
+  padding-bottom: 16px;
+  background-color: #fff;
+}
+
+.web .brad-crambs {
+  top: 114px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.web .form-title {
+  font-size: 26px;
+}
+
+.web .for-what__tabs {
+  padding-top: 18px;
+}
+
+.web .for-what__left-column, .web .for-what__right-column {
+  padding-top: 64px;
+}
+
+.web .for-what__description {
+  max-width: 658px;
+  margin-bottom: 25px;
+}
+
+.web .for-what__section {
+  padding-bottom: 31px;
+}
+
+.web .for-what__s-list {
+  padding-left: 0;
+  margin-top: 0;
+  padding-top: 24px;
+  padding-bottom: 9px;
+  padding-right: 38px;
+}
+
+.web .for-what__s-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+h4.for-what__title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 32px;
+  color: #1A1D3E;
+  margin-bottom: 0;
+}
+
+.web .fl-start {
+  align-items: flex-start;
+}
+
+.for-what__circle {
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  border: 2px solid #007AFF;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 16px;
+
+  &--green {
+    border: 2px solid #4CD964;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.for-what__text {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1A1D3E;
+}
+
+
+.web .form-title {
+  margin-top: 9px;
+  margin-bottom: 22px;
+}
+
+.order-consult--static {
+  z-index: 1;
+}
+
+.other {
+  padding-top: 80px;
+
+  &__s-title {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -1px;
+    color: #1A1D3E;
+    margin-bottom: 40px;
+  }
+
+  &__slider .slick-list {
+    overflow: visible;Аудит исходного кода
+  }
+
+  &__slide-content {
+    padding: 40px 48px 40px 40px;
+    border: 1px solid rgba(117, 137, 165, 0.2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    max-width: 680px;
+    margin-right: 24px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    color: #1A1D3E;
+    margin-bottom: 16px;
+  }
+
+  &__descr {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #7589A5;
+    margin-bottom: 24px;
+  }
+}
+
+.input-label {
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+
+.industry-section {
+  padding-top: 124px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 25px;
+  }
+
+  &__item {
+    display: block;
+    margin: 0;
+    padding: 40px 30px 40px 40px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    height: 320px;
+    border: 2px solid rgba(117, 137, 165, 0.2);
+    box-sizing: border-box;
+    min-width: 328px;
+    max-width: 328px;
+    transition: all $ease;
+
+    .fill-svg path, .stroke-svg path {
+      transition: all $ease;
+    }
+
+    &:hover {
+      border: 2px solid #007AFF;
+
+      .fill-svg path {
+        fill: #007AFF;
+      }
+
+      .stroke-svg path {
+        stroke: #007AFF;
+      }
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 32px;
+      color: #1A1D3E;
+      margin-top: 65px;
+    }
+
+    .mt-xs {
+      margin-top: 32px;
+    }
+
+    p {
+      padding-top: 16px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #7589A5;
+    }
+  }
+
+}

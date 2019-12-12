@@ -1,10 +1,20 @@
 $(document).ready(function() {
+    /** Masked Input **/
+    // $('input[type=tel]').mask('+8(999) 999 99 99');
+
     $(window).scroll( function() {
         var top = $(this).scrollTop();
         if (top > 200) {
             $('.header').addClass('fixed');
         } else {
             $('.header').removeClass('fixed');
+        }
+    });
+
+    $(window).scroll( function() {
+        var top = $(this).scrollTop();
+        if (top > 0) {
+            $('.web .header').removeClass('fixed');
         }
     });
 
@@ -49,6 +59,14 @@ $(document).ready(function() {
     $('.js-industry').slick({
         infinite: true,
         slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true
+    });
+
+    $('.other__slider').slick({
+        infinite: true,
+        slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
         arrows: true
@@ -216,12 +234,6 @@ $(document).ready(function() {
             info = $(form + ' input[name="info"]');
 
 
-        // let companyVal = '',
-        //     nameVal = '',
-        //     telephoneVal = '',
-        //     emailVal = '',
-        //     detailsVal = '';
-
         let data = {
             companyVal : '',
             nameVal : '',
@@ -244,11 +256,11 @@ $(document).ready(function() {
             }, 5000)
         }
 
-        function checkvalue(input, reg, v, template) {
+        function checkvalue(input, reg, obj, prop, template) {
             if(input.val() == "" || reg.test(input.val()) === false) {
                 viewError(input, template);
             } else {
-                 v = input.val();
+                 obj[prop] = input.val();
             }
         }
 
@@ -268,11 +280,23 @@ $(document).ready(function() {
             }
         });
 
-        checkvalue(company, regexNames, data.companyVal, templates['errorCompany']);
-        checkvalue(email, regexEmail, data.emailVal, templates['errorEmail']);
-        checkvalue(telephone, regexTel, data.telephoneVal, templates['errorPhone']);
+        checkvalue(company, regexNames, data, 'companyVal', templates['errorCompany']);
+        checkvalue(email, regexEmail, data, 'emailVal', templates['errorEmail']);
+        checkvalue(telephone, regexTel, data, 'telephoneVal' , templates['errorPhone']);
 
         console.log(data);
+
+        if(data['companyVal'] && data['emailVal'] && data['telephoneVal']) {
+            $.ajax({
+                type: "POST",
+                url: "./send.php",
+                data: {...data},
+                success: function() {
+                    alert('Done');
+                    $('input').val('');
+                }
+            });
+        }
 
     }
 

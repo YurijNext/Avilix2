@@ -562,6 +562,7 @@
                     </div>
                 </div>
         </div>
+        </div>
     </section>
     <section class="product">
         <div class="wrapper">
@@ -985,10 +986,11 @@
             <path d="M18 18L10 10M10 10L18 2M10 10L2 18M10 10L2 2" stroke="#7589A5" stroke-opacity="0.5" stroke-width="3"/>
         </svg>
     </button>
-    <form action="" method="" name="order-consultation">
+    <form action="POST" enctype="multipart/form-data" name="order-consultation" class="order-consultation">
         <h2 class="form-title">Заказать консультацию по услугам</h2>
 
         <div class="inputs-box">
+            <input type="text" class="input-hidden form-info" name="info" value="Заказана информация по услугам">
             <div class="input-wrapper">
                 <label for="company" class="input-label">Компания</label>
                 <input  name="company" type="text" id="company" class="form-input">
@@ -1023,13 +1025,14 @@
             <label class="check-label" for="check-agreement">Я принимаю <a href="#">условия хранения и обработки передаваемой информации</a></label>
         </div>
 
-        <button class="order-btn" type="submit"><span>Заказать</span></button>
+        <button class="order-btn order-form" type="button"><span>Заказать</span></button>
     </form>
 </div>
 
 <script src="js/plugins/jquery.min.js"></script>
 <script src="js/plugins/slick.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
