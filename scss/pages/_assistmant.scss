@@ -46,11 +46,11 @@
 
   &__left-column {
     width: 68.21%;
-    padding-top: 64px;
+    padding-top: 84px;
   }
 
   &__right-column {
-    padding-top: 64px;
+    padding-top: 84px;
     width: 31.79%;
     min-height: 310px;
     position: sticky;
@@ -83,7 +83,7 @@
 
   &__s-list {
     padding: 40px 48px 40px 40px;
-    margin-top: 40px;
+    margin-top: 35px;
   }
 
   &__s-item {
@@ -144,6 +144,59 @@
     &:hover {
       background-color: #007AFF;
       color: #FFFFFF;
+    }
+  }
+}
+
+.brad-crambs {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+  position: sticky;
+  top: 82px;
+  background-color: #fff;
+
+  &__links {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    padding: 0 18px;
+    position: relative;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: #1A1D3E;
+    width: 100%;
+
+    &--disabled {
+      color: #7589A5;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 8px;
+      background-image: url("../img/icons/vec-gray.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
   }
 }

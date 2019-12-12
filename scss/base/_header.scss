@@ -29,7 +29,7 @@
     visibility: hidden;
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 115%;
     padding-top: 32px;
     padding-bottom: 32px;
     padding-right: 32px;
@@ -145,6 +145,10 @@
       position: relative;
       display: flex;
       align-self: center;
+
+      &--active {
+        border-bottom: 2px solid  #007AFF;
+      }
     }
 
     &-link {
@@ -156,6 +160,12 @@
       height: 51px;
       line-height: 51px;
       white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all .3s ease-out;
+
+      &--active {
+        border-bottom: 2px solid  #007AFF;
+      }
     }
 
 

@@ -15,7 +15,7 @@ $(document).ready(function() {
 
         $('html, body').animate(
             {
-                scrollTop: $($(this).attr('href')).offset().top - 100,
+                scrollTop: $($(this).attr('href')).offset().top - 200,
             },
             500,
             'linear'
@@ -118,8 +118,9 @@ $(document).ready(function() {
         toggleModal();
     });
 
-    /** First screen animation**/
-    /** Wrap every letter in a span **/
+
+    /** Index page word animation**/
+
     let i = 1;
 
     function letterAnimation(el) {
@@ -166,6 +167,10 @@ $(document).ready(function() {
 
             i++;
 
+            if(i > $('.ml1').length) {
+                i = 1;
+            }
+
             setTimeout(callback(), 5000);
         }
 
@@ -193,7 +198,7 @@ $(document).ready(function() {
 
     /** Form validation**/
 
-    function validateForm() {
+    function validateForm(form) {
 
         let templates = {
             erorrName : 'Введите корректное имя',
@@ -202,18 +207,29 @@ $(document).ready(function() {
             errorEmail: 'Введите корректный email',
         };
 
-        let company = $('input[name="company"]'),
-            name = $('input[name="name"]'),
-            telephone = $('input[name="telephone"]'),
-            email = $('input[name="email"]'),
-            details = $('textarea[name="details"]'),
-            check = $('input[name="check"]');
+        let company = $(form + ' input[name="company"]'),
+            name = $(form + ' input[name="name"]'),
+            telephone = $(form + ' input[name="telephone"]'),
+            email = $(form + ' input[name="email"]'),
+            details = $(form + ' textarea[name="details"]'),
+            check = $(form + ' input[name="check"]'),
+            info = $(form + ' input[name="info"]');
 
-        let companyVal = '',
-            nameVal = '',
-            telephoneVal = '',
-            emailVal = '',
-            detailsVal = '';
+
+        // let companyVal = '',
+        //     nameVal = '',
+        //     telephoneVal = '',
+        //     emailVal = '',
+        //     detailsVal = '';
+
+        let data = {
+            companyVal : '',
+            nameVal : '',
+            telephoneVal : '',
+            emailVal : '',
+            detailsVal : details.val(),
+            info : info.val()
+        };
 
 
         let regexNames = /^[a-zA-Z\s]+$/,
@@ -232,11 +248,11 @@ $(document).ready(function() {
             if(input.val() == "" || reg.test(input.val()) === false) {
                 viewError(input, template);
             } else {
-                v = input.val();
+                 v = input.val();
             }
         }
 
-        name.val() == "" ? viewError(name,  templates['erorrName']) : nameVal = name.val();
+        name.val() == "" ? viewError(name,  templates['erorrName']) : data['nameVal'] = name.val();
 
         if(!check.is(':checked')) {
             check.parents('.check-wrap').css('border', '1px solid #FF3B30');
@@ -252,17 +268,24 @@ $(document).ready(function() {
             }
         });
 
-        checkvalue(company, regexNames, companyVal, templates['errorCompany']);
-        checkvalue(email, regexEmail, emailVal, templates['errorEmail']);
-        checkvalue(telephone, regexTel, telephoneVal, templates['errorPhone']);
+        checkvalue(company, regexNames, data.companyVal, templates['errorCompany']);
+        checkvalue(email, regexEmail, data.emailVal, templates['errorEmail']);
+        checkvalue(telephone, regexTel, data.telephoneVal, templates['errorPhone']);
 
+        console.log(data);
 
     }
 
-    $('.order-btn').on('click', function(e) {
+    $('.order-form').on('click', function(e) {
        e.preventDefault();
 
-        validateForm();
+        validateForm('.order-consultation');
+    });
+
+    $('.order-service').on('click', function(e) {
+        e.preventDefault();
+
+        validateForm('.order-service-form');
     });
 
 });
