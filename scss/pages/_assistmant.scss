@@ -46,13 +46,15 @@
 
   &__left-column {
     width: 68.21%;
+    padding-top: 64px;
   }
 
   &__right-column {
+    padding-top: 64px;
     width: 31.79%;
     min-height: 310px;
     position: sticky;
-    top: 160px;
+    top: 90px;
   }
 
   &__section {
