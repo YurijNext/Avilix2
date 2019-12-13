@@ -21,7 +21,19 @@ $(document).ready(function() {
     /** Scroll to id **/
 
     $('.for-what__tab a[href*="#"]').on('click', function(e) {
-        e.preventDefault()
+        e.preventDefault();
+
+        $('html, body').animate(
+            {
+                scrollTop: $($(this).attr('href')).offset().top - 200,
+            },
+            500,
+            'linear'
+        )
+    });
+
+    $('.services__header a[href*="#"]').on('click', function(e) {
+        e.preventDefault();
 
         $('html, body').animate(
             {
@@ -43,6 +55,15 @@ $(document).ready(function() {
                 $('.for-what__tab-link').removeClass('tab-link--active');
 
                 $('[href="#' + sectionID + '"]').addClass('tab-link--active');
+            }
+        })
+
+        $('.c-section').each(function() {
+            if(scrollTop >= $(this).offset().top - offset) {
+                let sectionID = $(this).attr('id');
+                $('.c-tab-link').removeClass('active');
+
+                $('[href="#' + sectionID + '"]').addClass('active');
             }
         })
 

@@ -1,0 +1,316 @@
+.company {
+  overflow: visible;
+
+  .footer {
+    margin-top: 85px;
+  }
+
+  .ml11 {
+    opacity: 1;
+  }
+
+  .main {
+    overflow: visible;
+  }
+
+  .services {
+    position: sticky;
+    top: 82px;
+    background-color: #fff;
+    padding-bottom: 0;
+  }
+
+  .main-section__text {
+    max-width: 856px;
+    text-align: center;
+  }
+
+  .main-title-wrap {
+    width: auto;
+  }
+
+  .s-title {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -1px;
+    color: #1A1D3E;
+  }
+}
+
+.history {
+  max-width: 592px;
+  margin-top: 65px;
+
+  .s-title {
+    margin-bottom: 24px;
+  }
+
+  &__descr {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7589A5;
+    margin-bottom: 24px;
+  }
+
+}
+
+.work {
+  padding-bottom: 40px;
+  padding-top: 55px;
+
+  &__cards {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card {
+    padding: 40px;
+    border: 1px solid rgba(117, 137, 165, 0.2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    max-width: 504px;
+    width: 48.83%;
+    transition: all $ease;
+
+    &:hover {
+      border: 1px solid #007AFF;
+    }
+  }
+
+  &__card-title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    color: #1A1D3E;
+    margin-bottom: 12px;
+  }
+
+  &__card-subtitle {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    color: #1A1D3E;
+    margin-bottom: 24px;
+  }
+
+  &__card-descr {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #7589A5;
+    margin-bottom: 12px;
+  }
+
+  &__cards-btn {
+    margin-top: 18px;
+  }
+}
+
+.licenses {
+  padding-top: 40px;
+  padding-bottom: 35px;
+
+  &__download-pdf {
+    border: 1px solid rgba(117, 137, 165, 0.2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__img {
+    margin-right: 24px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 26px;
+    color: #1A1D3E;
+
+    p {
+      margin-top: 12px;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: #7589A5;
+    }
+  }
+
+  &__download-link {
+    align-self: flex-start;
+    margin-left: auto;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #7589A5;
+    padding: 6px 10px;
+    border: 1px solid rgba(117, 137, 165, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    transition: all $ease;
+    &:hover {
+      background-color: #007AFF;
+      color: #fff;
+    }
+  }
+
+  .s-title {
+    margin-bottom: 32px;
+  }
+}
+
+.sertificates {
+  padding: 40px 0;
+
+  .s-title {
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+  }
+
+  &__item {
+    padding: 40px 40px 45px 40px;
+    border: 1px solid rgba(117, 137, 165, 0.2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    max-width: 504px;
+    max-height: 294px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    color: #1A1D3E;
+    margin-bottom: 12px;
+  }
+
+  &__descr {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7589A5;
+    margin-bottom: 20px;
+  }
+  &__show-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      text-align: center;
+      letter-spacing: -0.3px;
+      color: #7589A5;
+    }
+  }
+
+  img {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+}
+
+.c-contacts {
+  padding: 40px 0;
+
+  .s-title {
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left {
+    width: 65.9%;
+  }
+
+  &__right {
+    width: 34.1%;
+    height: 100%;
+  }
+
+  &__info {
+    margin-left: 31.8%;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    color: #1A1D3E;
+    margin-bottom: 16px;
+  }
+
+  &__inn {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #7589A5;
+    margin-bottom: 16px;
+  }
+
+  &__kpp {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #7589A5;
+  }
+
+  &__phone {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    color: #1A1D3E;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  &__email {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #7589A5;
+    display: inline-block;
+  }
+
+  .check-label {
+    max-width: 560px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
