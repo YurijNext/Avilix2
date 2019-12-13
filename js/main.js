@@ -19,6 +19,20 @@ $(document).ready(function() {
     });
 
     /** Scroll to id **/
+    $('.services__header a[href*="#"]').on('click', function(e) {
+        e.preventDefault();
+
+        $('html, body').animate(
+            {
+                scrollTop: $($(this).attr('href')).offset().top - 250,
+            },
+            500,
+            'linear'
+        )
+
+        $('.services__tab-link').removeClass('active');
+        $(this).addClass('active');
+    });
 
     $('.for-what__tab a[href*="#"]').on('click', function(e) {
         e.preventDefault();
@@ -32,7 +46,7 @@ $(document).ready(function() {
         )
     });
 
-    $('.services__header a[href*="#"]').on('click', function(e) {
+    $('.company__header a[href*="#"]').on('click', function(e) {
         e.preventDefault();
 
         $('html, body').animate(
@@ -45,6 +59,7 @@ $(document).ready(function() {
     });
 
     const offset = 400;
+    const offset2 = 500;
     $(window).scroll(function() {
 
         let scrollTop = $(this).scrollTop();
@@ -65,6 +80,21 @@ $(document).ready(function() {
 
                 $('[href="#' + sectionID + '"]').addClass('active');
             }
+        })
+
+        $('.services__slide').each(function() {
+            if(scrollTop >= $(this).offset().top - offset2) {
+                let sectionID = $(this).attr('id');
+                $('.services__tab-link').removeClass('active');
+                $('[href="#' + sectionID + '"]').addClass('active');
+
+                $('.s-figure').removeClass('visible');
+
+                $('[data-index="' + sectionID + '"]').addClass('visible');
+
+
+            }
+
         })
 
     });
@@ -100,37 +130,37 @@ $(document).ready(function() {
     });
 
 
-    $('.js-services').slick({
-        infinite: true,
-        slidesToShow: 1,
-        fade: true,
-        slidesToScroll: 1,
-        dots: false,
-        arrows: false
-    });
-
-    $('.js-services').on('afterChange', function(event, slick, currentSlide, nextSlide) {
-        $('.services__slider .slick-slide .services__right').removeClass('animated fadeInRight');
-        $('.services__slider .slick-active .services__right').addClass('animated fadeInRight');
-
-        $('.services__tab-link').removeClass('active');
-        $('[data-slide=' + '"' + (currentSlide + 1) + '"' + ']').addClass('active');
-
-        console.log('.services__tab-link [data-slide=' + '"' + (currentSlide + 1) + '"' + ']');
-    });
-
-    /** Go to slide on click services tab **/
-
-    $('.services__tab-link').on('click', function(e) {
-        e.preventDefault();
-
-        let index = parseInt($(this).attr('data-slide'));
-
-        $('.services__tab-link').not(this).removeClass('active');
-        $(this).addClass('active');
-
-        $('.js-services').slick('slickGoTo', index - 1);
-    });
+    // $('.js-services').slick({
+    //     infinite: true,
+    //     slidesToShow: 1,
+    //     fade: true,
+    //     slidesToScroll: 1,
+    //     dots: false,
+    //     arrows: false
+    // });
+    //
+    // $('.js-services').on('afterChange', function(event, slick, currentSlide, nextSlide) {
+    //     $('.services__slider .slick-slide .services__right').removeClass('animated fadeInRight');
+    //     $('.services__slider .slick-active .services__right').addClass('animated fadeInRight');
+    //
+    //     $('.services__tab-link').removeClass('active');
+    //     $('[data-slide=' + '"' + (currentSlide + 1) + '"' + ']').addClass('active');
+    //
+    //     console.log('.services__tab-link [data-slide=' + '"' + (currentSlide + 1) + '"' + ']');
+    // });
+    //
+    // /** Go to slide on click services tab **/
+    //
+    // $('.services__tab-link').on('click', function(e) {
+    //     e.preventDefault();
+    //
+    //     let index = parseInt($(this).attr('data-slide'));
+    //
+    //     $('.services__tab-link').not(this).removeClass('active');
+    //     $(this).addClass('active');
+    //
+    //     $('.js-services').slick('slickGoTo', index - 1);
+    // });
 
     /** Order modal **/
     function toggleModal() {

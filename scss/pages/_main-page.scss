@@ -70,9 +70,14 @@
 
 .services {
   padding-bottom: 130px;
+  overflow: visible;
 
   &__header {
     border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+    background-color: #fff;
+    position: sticky;
+    top: 80px;
+    z-index: 2;
 
     .wrapper {
       display: flex;
@@ -113,7 +118,7 @@
   }
 
   &__number {
-    margin: 124px 0;
+    margin-bottom: 124px;
     font-weight: 500;
     font-size: 78px;
     line-height: 78px;
@@ -251,6 +256,7 @@
 
 .industry {
   padding: 95px 0 125px;
+  overflow: hidden;
 
   &__slider {
     margin-top: 40px;
@@ -366,3 +372,28 @@
 .main-section__text {
   margin-top: 18px;
 }
+
+.industry__slider .slick-slide:hover {
+  border: 2px solid #007AFF;
+  .svg-fill path {
+    fill: #007AFF;
+  }
+
+  .svg-stroke path {
+    stroke: #007AFF;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

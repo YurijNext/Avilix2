@@ -29,10 +29,10 @@ $mail->Username = 'yurij.leginchuk@gmail.com';
 $mail->Password = 'LiHiN1996';
 $mail->SMTPSecure = 'ssl';
 // От кого
-$mail->setFrom($email, 'yurij.leginchuk@gmail.com');
+$mail->setFrom($email, '');
 
 // Кому
-$mail->addAddress('yurij.leginchuk@gmail.com');
+$mail->addAddress('');
 
 // Тема письма
 $mail->isHTML(true);
