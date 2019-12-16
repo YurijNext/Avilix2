@@ -125,7 +125,7 @@ h3 {
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
@@ -182,11 +182,99 @@ h3 {
 }
 
 .index {
-  overflow: visible;
+  overflow-x: hidden;
 }
 
 
 .index .main {
   overflow: visible;
 }
+
+.services .main {
+  overflow: visible;
+}
+
+.web .slick-arrow.slick-next {
+  right: 0;
+  background-image: url(../img/arrow-right-big.svg);
+}
+
+.web .slick-arrow {
+  top: -20%;
+  width: 18px;
+  height: 28px;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+
+.web .slick-arrow.slick-prev {
+  right: 50px;
+  left: initial;
+  background-image: url(../img/arrow-left-big.svg);
+}
+.web .slick-arrow {
+  top: -20%;
+  width: 18px;
+  height: 28px;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.web .slick-arrow {
+  top: -30%;
+  width: 18px;
+  height: 28px;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.slick-prev, .slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  color: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.web .other .slick-slider .slick-slide {
+  transition: all $ease;
+}
+
+.web .other .slick-slider .slick-slide {
+  transform: translateX(-32%);
+  transition: all $ease;
+}
+
+.web .other .slick-slider .slick-current {
+  transform: translateX(0) !important;
+  transition: all $ease;
+}
+
+@media only screen and (max-width: 1070px) {
+  .wrapper {
+    padding: 0 40px;
+  }
+}
+
+
 

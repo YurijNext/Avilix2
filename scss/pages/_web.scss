@@ -12,10 +12,15 @@
   background-color: #fff;
 }
 
+.web .footer {
+  margin-top: 0;
+}
+
 .web .brad-crambs {
   top: 114px;
   background-color: #fff;
   z-index: 2;
+  border-top: 1px solid rgba(117, 137, 165, 0.2);
 }
 
 .web .form-title {
@@ -24,6 +29,7 @@
 
 .web .for-what__tabs {
   padding-top: 18px;
+  padding-bottom: 31px;
 }
 
 .web .for-what__left-column, .web .for-what__right-column {
@@ -105,6 +111,8 @@ h4.for-what__title {
 
 .other {
   padding-top: 80px;
+  padding-bottom: 108px;
+  background-color: #F7F9FA;
 
   &__s-title {
     font-weight: 500;

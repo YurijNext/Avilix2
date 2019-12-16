@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/hamburgers.min.css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
 </head>
 <body class="web">
@@ -447,10 +447,8 @@
                         </button>
                         <form action="POST" enctype="multipart/form-data" name="order-consultation" class="order-service-form" >
                             <h2 class="form-title form-title--xl">Заказать консультацию по услуге</h2>
-
+                            <input type="text" class="input-hidden form-info" name="info" value="Заказана информация по услуге 'Тестирование  на проникновение'">
                             <div class="inputs-box">
-                                <input type="text" class="input-hidden form-info" name="info" value="Заказана информация по услуге 'Тестирование  на проникновение'">
-
                                 <div class="input-wrapper">
                                     <label for="company" class="input-label">Компания</label>
                                     <input  name="company" type="text"  class="form-input">
@@ -774,7 +772,7 @@
 </footer>
 
 
-<div class="overlay"></div>
+
 
 <div class="order-consult">
     <button type="button" class="order-close">
@@ -784,9 +782,8 @@
     </button>
     <form action="POST" enctype="multipart/form-data" name="order-consultation" class="order-consultation">
         <h2 class="form-title">Заказать консультацию по услугам</h2>
-
+        <input type="text" class="input-hidden form-info" name="info" value="Заказана информация по услугам">
         <div class="inputs-box">
-            <input type="text" class="input-hidden form-info" name="info" value="Заказана информация по услугам">
             <div class="input-wrapper">
                 <label for="company" class="input-label">Компания</label>
                 <input  name="company" type="text" id="company" class="form-input">
@@ -825,6 +822,8 @@
     </form>
 </div>
 
+
+<div class="overlay"></div>
 
 <script src="js/plugins/jquery.min.js"></script>
 <script src="js/plugins/slick.min.js"></script>
