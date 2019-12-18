@@ -270,6 +270,10 @@ h3 {
   transition: all $ease;
 }
 
+.hamburger--black .hamburger-inner, .hamburger--black .hamburger-inner:after, .hamburger--black .hamburger-inner:before {
+  background-color: #1A1D3E;
+}
+
 @media only screen and (max-width: 1070px) {
   .wrapper {
     padding: 0 40px;

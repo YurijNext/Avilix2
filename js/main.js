@@ -1,4 +1,7 @@
+
+
 $(document).ready(function() {
+
     /** Masked Input **/
     // $('input[type=tel]').mask('+8(999) 999 99 99');
 
@@ -175,6 +178,7 @@ $(document).ready(function() {
     });
 
     let ad = $('.advantages .wrapper');
+    let mn = $('.for-what__tabs');
 
     let settings1 = {
         slidesToShow: 1,
@@ -190,9 +194,36 @@ $(document).ready(function() {
         ]
     };
 
+    let settings2 = {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: false,
+        mobileFirst: true,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 380,
+                slidesToShow: 1,
+            },
+            {
+                breakpoint: 577,
+                slidesToShow: 2,
+            },
+            {
+                breakpoint: 768,
+                settings: "unslick"
+            },
+        ]
+    };
+
     $(window).on('load', function() {
         if ($(window).width() < 577) {
             return ad.slick(settings1);
+        }
+
+        if ($(window).width() < 769) {
+            return mn.slick(settings2);
         }
 
     });
@@ -201,6 +232,10 @@ $(document).ready(function() {
     $(window).on('resize', function() {
         if ($(window).width() < 577) {
             return ad.slick(settings1);
+        }
+
+        if ($(window).width() < 769) {
+            return mn.slick(settings2);
         }
 
     });
@@ -412,5 +447,10 @@ $(document).ready(function() {
 
         validateForm('.order-service-form');
     });
+
+
+
+
+
 
 });
