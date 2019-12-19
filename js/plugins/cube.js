@@ -72,6 +72,8 @@ window.addEventListener('load', function() {
                 canvas.height = H;
                 data = context.createImageData(W, H);
                 zero = context.createImageData(W, H);
+
+
                 for (i = m = 3, ref = zero.data.length; m < ref; i = m += 4) {
                     zero.data[i] = 0xFF;
                 }
