@@ -45,20 +45,45 @@ window.addEventListener('load', function() {
             points.push(v = vec4.fromValues(x, y, z, 1));
             colors.push(palette[0]);
         }
-        for (_ = k = 0; k < 25000; _ = ++k) {
-            x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-            y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-            z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+
+        /** RECTANGLE **/
+
+        for (_ = k = 0; k < 125000; _ = ++k) {
+            x = (1 - Math.pow(Math.random(), 2)) * ((Math.random() * 2 << 1) - 1);
+            y = (1 - Math.pow(Math.random(), 2)) * ((Math.random() * 2 << 1) - 1);
+            z = (1 - Math.pow(Math.random(), 2)) * ((Math.random() * 2 << 1) - 1);
+
+
             points.push(v = vec4.fromValues(x, y, z, 1));
             colors.push(palette[1]);
         }
-        for (_ = l = 0; l < 50000; _ = ++l) {
-            x = Math.random() * 2 - 1;
-            y = Math.random() * 2 - 1;
-            z = Math.random() * 2 - 1;
-            points.push(v = vec4.fromValues(x, y, z, 1));
-            colors.push(palette[ρ < vec3.len(v) ? 1 : 0]);
-        }
+
+    /** TRIANGLE **/
+
+    // for (_ = k = 0; k < 125000; _ = ++k) {
+    //     y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+    //     z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+    //     x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+    //
+    //     y = Math.abs(y)*2;
+    //     x *= y*0.4;
+    //     z *= y*0.4;
+    //     y -= 1.5;
+    //
+    //     points.push(v = vec4.fromValues(x, y, z, 0.7));
+    //     colors.push(palette[1]);
+    // }
+
+        /** POINTS **/
+
+        // for (_ = l = 0; l < 50000; _ = ++l) {
+        //     x = Math.random() * 2 - 1;
+        //     y = Math.random() * 2 - 1;
+        //     z = Math.random() * 2 - 1;
+        //     points.push(v = vec4.fromValues(x, y, z, 1));
+        //     colors.push(palette[ρ < vec3.len(v) ? 1 : 0]);
+        // }
+
         data = null;
         zero = null;
         return (render = function () {
@@ -72,15 +97,46 @@ window.addEventListener('load', function() {
                 canvas.height = H;
                 data = context.createImageData(W, H);
                 zero = context.createImageData(W, H);
+
+
                 for (i = m = 3, ref = zero.data.length; m < ref; i = m += 4) {
                     zero.data[i] = 0xFF;
                 }
+
+                /** Background **/
+                //
+                // let count = 1;
+                //
+                // for(i = 0, ref = zero.data.length; i < ref; i++) {
+                //     switch(count) {
+                //         case 1:
+                //             zero.data[i] = 26;
+                //             count ++;
+                //             break;
+                //         case 2:
+                //             zero.data[i] = 29;
+                //             count ++;
+                //             break;
+                //         case 3:
+                //             zero.data[i] = 62;
+                //             count ++;
+                //             break;
+                //         case 4:
+                //             zero.data[i] = 1;
+                //             count ++;
+                //             break;
+                //         default: {
+                //             count = 1;
+                //         }
+                //     }
+                // }
+
                 data.data.set(zero.data);
             }
             mat4.identity(model);
-            mat4.rotateX(model, model, T / 5);
-            mat4.rotateY(model, model, T / 6);
-            mat4.rotateZ(model, model, T / 7);
+            mat4.rotateX(model, model, T / 3);
+            mat4.rotateY(model, model, T / 4);
+            mat4.rotateZ(model, model, T / 5);
             mat4.lookAt(view, [0, 0, 5], [0, 0, 0], [0, 1, 0]);
             mat4.perspective(projection, 30 * Math.RAD, W / H, 1e-3, 1e3);
             [model, view, projection].reduce(function (a, b) {
@@ -97,6 +153,8 @@ window.addEventListener('load', function() {
                     y = (1 - y) * 0.5 * H | 0;
                     i = x + y * W << 2;
                     a = a * H / w;
+
+
                     data.data[i++] += r * a;
                     data.data[i++] += g * a;
                     data.data[i++] += b * a;
@@ -104,7 +162,9 @@ window.addEventListener('load', function() {
             }
 
 
+
             context.putImageData(data, 0, 0);
+
             return data.data.set(zero.data);
 
         })();

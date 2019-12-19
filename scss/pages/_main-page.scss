@@ -2,6 +2,7 @@
   background: $dark-blue;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 
   .wrapper {
     width: 100%;
@@ -230,6 +231,7 @@
 .advantages {
   padding: 45px 0;
   border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+  overflow: hidden;
 
   .wrapper {
     display: flex;
@@ -621,6 +623,10 @@
     display: flex !important;
     justify-content: center;
     align-self: center;
+  }
+
+  .industry__slider .slick-arrow {
+    display: none;
   }
 }
 

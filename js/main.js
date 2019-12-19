@@ -177,8 +177,33 @@ $(document).ready(function() {
         ]
     });
 
+    $(window).on('load', function() {
+
+        if ($(window).width() < 768) {
+            $('.for-what__tabs').slick('unslick');
+            $('.for-what__tabs').slick('reinit');
+        }
+        if ($(window).width() < 577) {
+            return ad.slick(settings1);
+        }
+
+
+
+    });
+
+
+    $(window).on('resize', function() {
+        if ($(window).width() < 768) {
+            $('.for-what__tabs').slick('unslick');
+            $('.for-what__tabs').slick('reinit');
+        }
+        if ($(window).width() < 577) {
+            return ad.slick(settings1);
+        }
+
+    });
+
     let ad = $('.advantages .wrapper');
-    let mn = $('.for-what__tabs');
 
     let settings1 = {
         slidesToShow: 1,
@@ -194,13 +219,13 @@ $(document).ready(function() {
         ]
     };
 
-    let settings2 = {
+    $('.for-what__tabs').slick({
         slidesToShow: 2,
         slidesToScroll: 1,
         dots: false,
         arrows: false,
-        mobileFirst: true,
         variableWidth: true,
+        mobileFirst: true,
         responsive: [
             {
                 breakpoint: 380,
@@ -215,30 +240,9 @@ $(document).ready(function() {
                 settings: "unslick"
             },
         ]
-    };
-
-    $(window).on('load', function() {
-        if ($(window).width() < 577) {
-            return ad.slick(settings1);
-        }
-
-        if ($(window).width() < 769) {
-            return mn.slick(settings2);
-        }
-
     });
 
 
-    $(window).on('resize', function() {
-        if ($(window).width() < 577) {
-            return ad.slick(settings1);
-        }
-
-        if ($(window).width() < 769) {
-            return mn.slick(settings2);
-        }
-
-    });
 
     $('.js-services').on('init', function(event, slick, currentSlide, nextSlide) {
         setTimeout(function() {
