@@ -299,6 +299,14 @@
     background-color: #fff;
   }
 
+  .e-commerce  .hamburger-inner, .e-commerce  .hamburger-inner:after, .e-commerce  .hamburger-inner:before {
+    width: 20px;
+    height: 2px;
+    background-color: #1A1D3E;
+  }
+
+
+
   .fixed .hamburger-inner, .fixed .hamburger-inner:after, .fixed .hamburger-inner:before {
     width: 20px;
     height: 2px;
@@ -322,3 +330,4 @@
     margin-left: 15px;
   }
 }
+

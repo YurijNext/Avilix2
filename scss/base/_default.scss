@@ -274,9 +274,20 @@ h3 {
   background-color: #1A1D3E;
 }
 
+
+.main-title-wrap h1 {
+  letter-spacing: 0.2px;
+}
+
 @media only screen and (max-width: 1070px) {
   .wrapper {
     padding: 0 40px;
+  }
+}
+
+@media only screen and (max-width: 577px) {
+  .wrapper {
+    padding: 0 20px;
   }
 }
 

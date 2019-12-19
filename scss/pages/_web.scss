@@ -113,6 +113,7 @@ h4.for-what__title {
   padding-top: 80px;
   padding-bottom: 108px;
   background-color: #F7F9FA;
+  overflow: hidden;
 
   &__s-title {
     font-weight: 500;
@@ -158,6 +159,41 @@ h4.for-what__title {
 .input-label {
   z-index: 1;
 }
+
+.for-what__s-list {
+  border: none;
+}
+
+.services .main-section__partners {
+  display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .fixed {
+    padding: 37px 0;
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+  }
+
+  .web .for-what__container {
+    flex-direction: column;
+  }
+
+  .main-section__btn {
+    margin-top: 28px;
+  }
+
+  .services .services__slide .wrapper {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 577px) {
+  .main-section__btn {
+    padding: 15px 24px;
+  }
+}
+
 
 
 
