@@ -179,7 +179,7 @@ $(document).ready(function() {
 
     $(window).on('load', function() {
 
-        if ($(window).width() < 768) {
+        if ($(window).width() <= 768) {
             $('.for-what__tabs').slick('unslick');
             $('.for-what__tabs').slick('reinit');
         }
@@ -193,10 +193,11 @@ $(document).ready(function() {
 
 
     $(window).on('resize', function() {
-        if ($(window).width() < 768) {
+        if ($(window).width() <= 768) {
             $('.for-what__tabs').slick('unslick');
             $('.for-what__tabs').slick('reinit');
         }
+
         if ($(window).width() < 577) {
             return ad.slick(settings1);
         }

@@ -325,6 +325,19 @@ h3 {
   letter-spacing: 0.2px;
 }
 
+.services__right {
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+}
+
+#canvas-min {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #fff;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+}
+
 @media only screen and (max-width: 1070px) {
   .wrapper {
     padding: 0 40px;

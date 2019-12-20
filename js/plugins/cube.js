@@ -99,8 +99,18 @@ window.addEventListener('load', function() {
                 zero = context.createImageData(W, H);
 
 
-                for (i = m = 3, ref = zero.data.length; m < ref; i = m += 4) {
-                    zero.data[i] = 0xFF;
+                /** OLD BACKGROUND **/
+                // for (i = m = 3, ref = zero.data.length; m < ref; i = m += 4) {
+                //     zero.data[i] = 0xFF;
+                // }
+
+                /** NEW BACKGROUND **/
+
+                for (i = 0; i < zero.data.length; i += 4) {
+                    zero.data[i] = 0x1A;   // r
+                    zero.data[i+1] = 0x1D; // g
+                    zero.data[i+2] = 0x3E; // b
+                    zero.data[i+3] = 0xff;
                 }
 
                 /** Background **/
