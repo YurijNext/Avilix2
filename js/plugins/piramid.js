@@ -33,55 +33,61 @@ window.addEventListener('load', function() {
     colors = [];
     palette = [[1.00, 1.00, 1.00, 0.30], [0.25, 0.50, 1.00, 0.75]].map(vec4.clone);
 
+    /** BALL **/
+    let renderBall = function(scale) {
+        for (_ = j = 0; j < 15000; _ = ++j) {
+            ρ = 3 / 5;
+            θ = Math.acos(Math.random() * 2 - 1);
+            φ = Math.random() * Math.PI * 2;
+            x = ρ * Math.sin(θ) * Math.cos(φ);
+            y = ρ * Math.sin(θ) * Math.sin(φ);
+            z = ρ * Math.cos(θ);
+            points.push(v = vec4.fromValues(x, y, z, scale));
+            colors.push(palette[0]);
+        }
+    };
 
-    for (_ = j = 0; j < 25000; _ = ++j) {
-        ρ = 3 / 5;
-        θ = Math.acos(Math.random() * 2 - 1);
-        φ = Math.random() * Math.PI * 2;
-        x = ρ * Math.sin(θ) * Math.cos(φ);
-        y = ρ * Math.sin(θ) * Math.sin(φ);
-        z = ρ * Math.cos(θ);
-        points.push(v = vec4.fromValues(x, y, z, 1));
-        colors.push(palette[0]);
-    }
+    /** PIRAMID**/
 
-    /** RECTANGLE **/
-    //
-    // for (_ = k = 0; k < 125000; _ = ++k) {
-    //     x = (1 - Math.pow(Math.random(), 2)) * ((Math.random() * 2 << 1) - 1);
-    //     y = (1 - Math.pow(Math.random(), 2)) * ((Math.random() * 2 << 1) - 1);
-    //     z = (1 - Math.pow(Math.random(), 2)) * ((Math.random() * 2 << 1) - 1);
-    //
-    //
-    //     points.push(v = vec4.fromValues(x, y, z, 1));
-    //     colors.push(palette[1]);
-    // }
+    let renderPiramid = function(scale) {
+        for (_ = k = 0; k < 50000; _ = ++k) {
+            y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+            z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+            x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
 
-    /** TRIANGLE **/
+            y = Math.abs(y)*2;
+            x *= y*0.4;
+            z *= y*0.4;
+            y -= 1.5;
 
-    for (_ = k = 0; k < 125000; _ = ++k) {
-        y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-        z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-        x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+            points.push(v = vec4.fromValues(x, y, z, scale));
+            colors.push(palette[1]);
+        }
+    };
 
-        y = Math.abs(y)*2;
-        x *= y*0.4;
-        z *= y*0.4;
-        y -= 1.5;
+    renderBall(1.4);
+    renderPiramid(1.1);
 
-        points.push(v = vec4.fromValues(x, y, z, 0.7));
-        colors.push(palette[1]);
-    }
+    $(window).on('load', function() {
+        if($(window).width() <= 786) {
+            points = [];
+            renderBall(1.9);
+            renderPiramid(1.6);
+        }
 
-    /** POINTS **/
+        if($(window).width() <= 600) {
+            points = [];
+            renderBall(2.3);
+            renderPiramid(2);
+        }
 
-    // for (_ = l = 0; l < 50000; _ = ++l) {
-    //     x = Math.random() * 2 - 1;
-    //     y = Math.random() * 2 - 1;
-    //     z = Math.random() * 2 - 1;
-    //     points.push(v = vec4.fromValues(x, y, z, 1));
-    //     colors.push(palette[ρ < vec3.len(v) ? 1 : 0]);
-    // }
+        if($(window).width() <= 470)  {
+            points = [];
+            renderBall(2.9);
+            renderPiramid(2.5);
+        }
+    });
+
 
     data = null;
     zero = null;

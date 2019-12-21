@@ -1,5 +1,11 @@
+/** https://gismo150.github.io/WebGL_Editor2-master/index.html **/
+/** https://www.iquilezles.org/www/articles/intersectors/intersectors.html **/
+
 
 'use strict';
+
+let state = 0;
+
 Math.TAU = Math.PI * 2;
 
 Math.RAD = Math.PI / 180;
@@ -18,11 +24,15 @@ Math.random = (function(x) {
 })(1);
 
 window.addEventListener('load', function() {
-    
 
+
+
+
+
+    let renderScene = function(cns, nmb, scale) {
         var _, buffer, canvas, colors, context, data, j, k, l, model, mvp, palette, points, projection, render, v, view,
             x, y, z, zero, θ, ρ, φ;
-        canvas = document.getElementById('canvas');
+        canvas = document.getElementById(cns);
         context = canvas.getContext('2d');
         // document.body.appendChild(canvas);
         buffer = mat4.create();
@@ -35,20 +45,21 @@ window.addEventListener('load', function() {
         palette = [[1.00, 1.00, 1.00, 0.30], [0.25, 0.50, 1.00, 0.75]].map(vec4.clone);
 
 
-        /** BALL **/
 
-       let renderBall = function(scale) {
-           for (_ = j = 0; j < 15000; _ = ++j) {
-               ρ = 3 / 5;
-               θ = Math.acos(Math.random() * 2 - 1);
-               φ = Math.random() * Math.PI * 2;
-               x = ρ * Math.sin(θ) * Math.cos(φ);
-               y = ρ * Math.sin(θ) * Math.sin(φ);
-               z = ρ * Math.cos(θ);
-               points.push(v = vec4.fromValues(x, y, z, scale));
-               colors.push(palette[0]);
-           }
-       };
+
+        /** BALL **/
+        let renderBall = function(scale) {
+            for (_ = j = 0; j < 15000; _ = ++j) {
+                ρ = 3 / 5;
+                θ = Math.acos(Math.random() * 2 - 1);
+                φ = Math.random() * Math.PI * 2;
+                x = ρ * Math.sin(θ) * Math.cos(φ);
+                y = ρ * Math.sin(θ) * Math.sin(φ);
+                z = ρ * Math.cos(θ);
+                points.push(v = vec4.fromValues(x, y, z, scale));
+                colors.push(palette[0]);
+            }
+        };
 
         /** CUBE **/
 
@@ -65,30 +76,67 @@ window.addEventListener('load', function() {
         };
 
 
-        renderBall(1.4);
-        renderCube(1.4);
+        /** PIRAMIDE **/
 
-        $(window).on('load', function() {
-           if($(window).width() <= 786) {
-               points = [];
-               renderBall(1.6);
-               renderCube(1.6);
-           }
 
-            if($(window).width() <= 600) {
-                points = [];
+
+        let renderPiramid = function(scale) {
+            for (_ = k = 0; k < 50000; _ = ++k) {
+                y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+                z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+                x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+
+                y = Math.abs(y)*2;
+                x *= y*0.4;
+                z *= y*0.4;
+                y -= 1.5;
+
+                points.push(v = vec4.fromValues(x, y, z, scale));
+                colors.push(palette[1]);
+            }
+        };
+
+        /** GEKSAGON **/
+
+        let renderGeksagon = function(scale) {
+            for (_ = k = 0; k < 50000; _ = ++k) {
+                y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+                z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+                x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
+
+                x *= (4.5-Math.abs(y)*2)/4;
+                z *= 0.43;
+
+                points.push(v = vec4.fromValues(x, y, z, scale));
+                colors.push(palette[1]);
+            }
+        };
+
+        switch(nmb) {
+            case '1':
                 renderBall(2.5);
-                renderCube(2.5);
-            }
+                renderCube(scale);
+                break;
+            case '2':
+                renderBall(2.5);
+                renderPiramid(scale);
+                break;
+            case '3':
+                renderBall(2.5);
+                renderGeksagon(scale);
+                break;
+        }
 
-            if($(window).width() <= 420)  {
-                points = [];
-                renderBall(3);
-                renderCube(3);
-            }
-        });
 
+        /** POINTS **/
 
+        // for (_ = l = 0; l < 50000; _ = ++l) {
+        //     x = Math.random() * 2 - 1;
+        //     y = Math.random() * 2 - 1;
+        //     z = Math.random() * 2 - 1;
+        //     points.push(v = vec4.fromValues(x, y, z, 1));
+        //     colors.push(palette[ρ < vec3.len(v) ? 1 : 0]);
+        // }
 
         data = null;
         zero = null;
@@ -105,8 +153,6 @@ window.addEventListener('load', function() {
                 zero = context.createImageData(W, H);
 
 
-
-                /** NEW BACKGROUND **/
 
                 for (i = 0; i < zero.data.length; i += 4) {
                     zero.data[i] = 0x1A;   // r
@@ -127,7 +173,6 @@ window.addEventListener('load', function() {
             [model, view, projection].reduce(function (a, b) {
                 return mat4.mul(mvp, b, a);
             });
-
             for (i = n = 0, len = points.length; n < len; i = ++n) {
                 point = points[i];
                 vec4.transformMat4(buffer, point, mvp);
@@ -155,7 +200,22 @@ window.addEventListener('load', function() {
 
         })();
 
+    };
 
-    
+    if($(window).width() <= 577) {
+        renderScene('cube', '1', 1.9);
+        renderScene('piramid', '2', 1.7);
+        renderScene('geksa', '3', 1.8);
+    }
+
+    $(window).on('resize', function () {
+        if($(window).width() <= 577 && state === 0) {
+            renderScene('cube', '1', 1.9);
+            renderScene('piramid', '2', 1.7);
+            renderScene('geksa', '3', 1.8);
+            state = 1;
+        }
+    })
+
 
 });

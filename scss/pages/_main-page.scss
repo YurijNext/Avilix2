@@ -351,7 +351,7 @@
 
 .ml1 {
   font-weight: 500;
-  font-size: 4.875em;
+  font-size: 3.875em;
   opacity: 0;
 }
 
@@ -361,6 +361,14 @@
   padding-top: 0.1em;
   padding-right: 0.05em;
   padding-bottom: 0.15em;
+}
+
+.main-section__text {
+  max-width: 1000px;
+}
+
+.main-title-wrap {
+  width: 1000px;
 }
 
 .ml1 .line {
@@ -381,6 +389,14 @@
 .ml1 .letter {
   display: inline-block;
   line-height: 1em;
+}
+
+.op {
+  opacity: 0;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .main-section__text {
@@ -559,6 +575,10 @@
     padding-top: 13px;
   }
 
+  .right-container {
+    position: relative;
+  }
+
   .footer {
     margin-top: 6px;
   }
@@ -618,6 +638,48 @@
   }
 }
 
+@media only screen and (max-width: 786px) {
+  .index .ml1 {
+    font-size: 30px;
+  }
+
+  .index  .main-section__text {
+    max-width: 600px;
+  }
+
+  .index  .main-title-wrap {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .index .ml1 {
+    font-size: 25px;
+  }
+
+  .index  .main-section__text {
+    max-width: 400px;
+  }
+
+  .index  .main-title-wrap {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .index .ml1 {
+    font-size: 20px;
+  }
+
+  .index  .main-section__text {
+    max-width: 300px;
+  }
+
+  .index  .main-title-wrap {
+    width: 300px;
+  }
+}
+
 @media only screen and (max-width: 740px) {
   .services__tab-link {
     display: flex !important;
@@ -640,13 +702,49 @@
   }
 }
 
+@media only screen and (min-width: 577px) {
+  .cnv {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 577px)  {
   .header.fixed {
     padding: 2px 0;
   }
 
+  .cnv {
+    display: block;
+  }
+
   .services__header{
     top: 54px;
+  }
+
+  .services__header .wrapper {
+    padding-left: 20px;
+    padding-right: 0;
+    overflow: hidden;
+  }
+
+  .advantages .wrapper {
+    overflow: hidden;
+  }
+
+  .industry__slider .slick-list {
+    overflow: hidden;
+  }
+
+  .industry__slider .slick-arrow {
+    display: none !important;
+  }
+
+  .index .header .wrapper {
+    overflow: hidden;
+  }
+
+  .product {
+    overflow: hidden;
   }
 
   .ml1 {

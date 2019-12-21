@@ -42,15 +42,15 @@ window.addEventListener('load', function() {
 
 
         /** BALL **/
-        let renderBall = function() {
-            for (_ = j = 0; j < 25000; _ = ++j) {
+        let renderBall = function(scale) {
+            for (_ = j = 0; j < 15000; _ = ++j) {
                 ρ = 3 / 5;
                 θ = Math.acos(Math.random() * 2 - 1);
                 φ = Math.random() * Math.PI * 2;
                 x = ρ * Math.sin(θ) * Math.cos(φ);
                 y = ρ * Math.sin(θ) * Math.sin(φ);
                 z = ρ * Math.cos(θ);
-                points.push(v = vec4.fromValues(x, y, z, 1.6));
+                points.push(v = vec4.fromValues(x, y, z, scale));
                 colors.push(palette[0]);
             }
         };
@@ -58,14 +58,14 @@ window.addEventListener('load', function() {
 
         /** CUBE **/
 
-        let renderCube = function() {
-            for (_ = k = 0; k < 125000; _ = ++k) {
+        let renderCube = function(scale) {
+            for (_ = k = 0; k < 50000; _ = ++k) {
                 x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
 
 
-                points.push(v = vec4.fromValues(x, y, z, 1.6));
+                points.push(v = vec4.fromValues(x, y, z, scale));
                 colors.push(palette[1]);
             }
         };
@@ -75,8 +75,8 @@ window.addEventListener('load', function() {
 
 
 
-        let renderPiramid = function() {
-            for (_ = k = 0; k < 125000; _ = ++k) {
+        let renderPiramid = function(scale) {
+            for (_ = k = 0; k < 50000; _ = ++k) {
                 y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
@@ -86,15 +86,15 @@ window.addEventListener('load', function() {
                 z *= y*0.4;
                 y -= 1.5;
 
-                points.push(v = vec4.fromValues(x, y, z, 1.2));
+                points.push(v = vec4.fromValues(x, y, z, scale));
                 colors.push(palette[1]);
             }
         };
 
         /** GEKSAGON **/
 
-        let renderGeksagon = function() {
-            for (_ = k = 0; k < 125000; _ = ++k) {
+        let renderGeksagon = function(scale) {
+            for (_ = k = 0; k < 50000; _ = ++k) {
                 y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
@@ -102,7 +102,7 @@ window.addEventListener('load', function() {
                 x *= (4.5-Math.abs(y)*2)/4;
                 z *= 0.43;
 
-                points.push(v = vec4.fromValues(x, y, z, 1.2));
+                points.push(v = vec4.fromValues(x, y, z, scale));
                 colors.push(palette[1]);
             }
         };
@@ -124,19 +124,19 @@ window.addEventListener('load', function() {
                         switch (sectionID) {
                             case '01':
                                 points = [];
-                                renderBall();
-                                renderCube();
+                                renderBall(1.6);
+                                renderCube(1.7);
                                 i++;
                                 break;
                             case '02':
                                 points = [];
-                                renderBall();
-                                renderPiramid();
+                                renderBall(1.6);
+                                renderPiramid(1.2);
                                 break;
                             case '03':
                                 points = [];
-                                renderBall();
-                                renderGeksagon();
+                                renderBall(1.6);
+                                renderGeksagon(1.2);
                                 break;
                         }
 
@@ -174,9 +174,6 @@ window.addEventListener('load', function() {
                 zero = context.createImageData(W, H);
 
 
-                // for (i = m = 3, ref = zero.data.length; m < ref; i = m += 4) {
-                //     zero.data[i] = 0xFF;
-                // }
 
                 for (i = 0; i < zero.data.length; i += 4) {
                     zero.data[i] = 0x1A;   // r
@@ -227,6 +224,8 @@ window.addEventListener('load', function() {
     };
 
 
-    renderScene('canvas-min');
+   if($(window).width() > 577) {
+       renderScene('canvas-min');
+   }
 
 });

@@ -2,8 +2,32 @@
 
 $(document).ready(function() {
 
+    /** Mobile menu **/
+
+    $('.hamburger').on('click', function() {
+        $(this).toggleClass('is-active');
+        $('body').toggleClass('no-scroll');
+        $('.mobile-menu').slideToggle(300);
+        $('.level-2').slideUp(100);
+        $('.lev-1__row').removeClass('lev-opnd');
+    });
+
+    $('.lev-1__row').on('click', function() {
+        $(this).toggleClass('lev-opnd');
+       $(this).siblings('.level-2').slideToggle(300);
+    });
+
     /** Masked Input **/
     // $('input[type=tel]').mask('+8(999) 999 99 99');
+
+    $('.mobile-menu').scroll(function() {
+        var top = $(this).scrollTop();
+        if (top > 0) {
+            $('.header').addClass('fixed');
+        } else {
+            $('.header').removeClass('fixed');
+        }
+    });
 
     $(window).scroll( function() {
         var top = $(this).scrollTop();
@@ -161,21 +185,68 @@ $(document).ready(function() {
         arrows: true,
     });
 
-    $('.services__header .wrapper').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots: false,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 700,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-        ]
-    });
+    if($('body').hasClass('index')) {
+        $('.services__header .wrapper').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 700,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+            ]
+        });
+    }
+
+    if($('body').hasClass('services')) {
+        $('.services__header .wrapper').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 700,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+            ]
+        });
+    }
+
+
+    if($('body').hasClass('company')) {
+        $('.company__header .wrapper').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 577,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 500,
+                    settings: {
+                        variableWidth: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                    }
+                },
+            ]
+        });
+    }
 
     $(window).on('load', function() {
 
@@ -183,6 +254,12 @@ $(document).ready(function() {
             $('.for-what__tabs').slick('unslick');
             $('.for-what__tabs').slick('reinit');
         }
+
+        if ($(window).width() > 768) {
+            $('.for-what__tabs').slick('unslick');
+            // $('.for-what__tabs').slick('reinit');
+        }
+
         if ($(window).width() < 577) {
             return ad.slick(settings1);
         }
@@ -196,6 +273,11 @@ $(document).ready(function() {
         if ($(window).width() <= 768) {
             $('.for-what__tabs').slick('unslick');
             $('.for-what__tabs').slick('reinit');
+        }
+
+        if ($(window).width() > 768) {
+            $('.for-what__tabs').slick('unslick');
+            // $('.for-what__tabs').slick('reinit');
         }
 
         if ($(window).width() < 577) {
@@ -226,7 +308,7 @@ $(document).ready(function() {
         dots: false,
         arrows: false,
         variableWidth: true,
-        mobileFirst: true,
+        mobileFirst: false,
         responsive: [
             {
                 breakpoint: 380,
@@ -236,12 +318,19 @@ $(document).ready(function() {
                 breakpoint: 577,
                 slidesToShow: 2,
             },
+
             {
                 breakpoint: 768,
+                slidesToShow: 2,
+            },
+
+            {
+                breakpoint: 769,
                 settings: "unslick"
             },
         ]
     });
+
 
 
 
@@ -321,8 +410,22 @@ $(document).ready(function() {
     (function setAnimation(callback) {
         $('.ml1' + i).css('opacity', '1');
 
+
+
+
         if($('body').hasClass('index')) {
             letterAnimation('.ml1' + i);
+
+            let k = i;
+
+
+            setTimeout(function() {
+                $('#p' + k).addClass('animated fadeIn');
+                setTimeout(function() {
+                    $('#p' + k).addClass('animated fadeOut');
+                }, 1200)
+            },1800)
+
 
             i++;
 
@@ -330,7 +433,7 @@ $(document).ready(function() {
                 i = 1;
             }
 
-            setTimeout(callback(), 5000);
+            setTimeout(callback, 2500);
         }
 
     })(interval);
@@ -342,7 +445,15 @@ $(document).ready(function() {
             if($('body').hasClass('index')) {
                 $('.ml1' + i).css('opacity', '1');
 
+                $('.op').removeClass('animated fadeIn fadeOut');
+
                 letterAnimation('.ml1' + i);
+
+
+
+                setTimeout(function() {
+                    $('#p' + i).addClass('animated fadeIn');
+                }, 2000);
 
                 i++;
 
@@ -391,9 +502,11 @@ $(document).ready(function() {
 
         function viewError(inputName, text) {
             inputName.parents('.input-wrapper').after(`<span class="error-text">${text}</span>`);
+            $('.form-input').addClass('bbi');
 
             setTimeout(function() {
                 $('.error-text').remove();
+                $('.form-input').removeClass('bbi');
             }, 5000)
         }
 

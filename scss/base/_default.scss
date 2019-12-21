@@ -290,6 +290,14 @@ h3 {
   border-radius: 8px;
 }
 
+.bbi {
+  border: 1px solid rgba(117, 137, 165, 0.2) !important;
+}
+
+input, button, textarea {
+  -webkit-appearance: none;
+}
+
 @media only screen and (max-width: 1070px) {
   .wrapper {
     padding: 0 40px;
@@ -301,6 +309,8 @@ h3 {
     padding: 0 20px;
   }
 }
+
+
 
 
 

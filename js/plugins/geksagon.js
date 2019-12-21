@@ -42,59 +42,24 @@ window.addEventListener('load', function() {
 
 
         /** BALL **/
-        let renderBall = function() {
-            for (_ = j = 0; j < 25000; _ = ++j) {
+        let renderBall = function(scale) {
+            for (_ = j = 0; j < 15000; _ = ++j) {
                 ρ = 3 / 5;
                 θ = Math.acos(Math.random() * 2 - 1);
                 φ = Math.random() * Math.PI * 2;
                 x = ρ * Math.sin(θ) * Math.cos(φ);
                 y = ρ * Math.sin(θ) * Math.sin(φ);
                 z = ρ * Math.cos(θ);
-                points.push(v = vec4.fromValues(x, y, z, 1));
+                points.push(v = vec4.fromValues(x, y, z, scale));
                 colors.push(palette[0]);
             }
         };
 
 
-        /** CUBE **/
-
-        let renderCube = function() {
-            for (_ = k = 0; k < 125000; _ = ++k) {
-                x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-                y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-                z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-
-
-                points.push(v = vec4.fromValues(x, y, z, 1));
-                colors.push(palette[1]);
-            }
-        };
-
-
-        /** PIRAMIDE **/
-
-
-
-        let renderPiramid = function() {
-            for (_ = k = 0; k < 125000; _ = ++k) {
-                y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-                z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-                x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
-
-                y = Math.abs(y)*2;
-                x *= y*0.4;
-                z *= y*0.4;
-                y -= 1.5;
-
-                points.push(v = vec4.fromValues(x, y, z, 0.7));
-                colors.push(palette[1]);
-            }
-        };
-
         /** GEKSAGON **/
 
-        let renderGeksagon = function() {
-            for (_ = k = 0; k < 125000; _ = ++k) {
+        let renderGeksagon = function(scale) {
+            for (_ = k = 0; k < 50000; _ = ++k) {
                 y = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 z = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
                 x = (1 - Math.pow(Math.random(), 5)) * ((Math.random() * 2 << 1) - 1);
@@ -102,42 +67,37 @@ window.addEventListener('load', function() {
                 x *= (4.5-Math.abs(y)*2)/4;
                 z *= 0.43;
 
-                points.push(v = vec4.fromValues(x, y, z, 0.7));
+                points.push(v = vec4.fromValues(x, y, z, scale));
                 colors.push(palette[1]);
             }
         };
 
-        renderGeksagon();
-        renderBall();
+        renderGeksagon(1.2);
+        renderBall(1.4);
 
-        let count = 1;
-
-        setInterval(function () {
-            points = [];
-
-            switch (count) {
-                case 1:
-                    renderPiramid();
-                    renderBall();
-                    count ++;
-                    break;
-                case 2:
-                    renderCube();
-                    renderBall();
-                    count ++;
-                    break;
-                case 2:
-                    renderGeksagon();
-                    renderBall();
-                    count ++;
-                    break;
-                default:
-                    renderGeksagon();
-                    renderBall();
-                    count = 1;
+        $(window).on('load', function() {
+            if($(window).width() <= 786) {
+                points = [];
+                colors = [];
+                renderBall(1.6);
+                renderGeksagon(1.4);
             }
 
-        }, 6000);
+            if($(window).width() <= 600) {
+                points = [];
+                colors = [];
+                renderBall(2.5);
+                renderGeksagon(2.3);
+            }
+
+            if($(window).width() <= 470)  {
+                points = [];
+                colors = [];
+                renderBall(3);
+                renderGeksagon(2.6);
+            }
+        });
+
 
 
         /** POINTS **/
@@ -164,10 +124,6 @@ window.addEventListener('load', function() {
                 data = context.createImageData(W, H);
                 zero = context.createImageData(W, H);
 
-
-                // for (i = m = 3, ref = zero.data.length; m < ref; i = m += 4) {
-                //     zero.data[i] = 0xFF;
-                // }
 
                 for (i = 0; i < zero.data.length; i += 4) {
                     zero.data[i] = 0x1A;   // r

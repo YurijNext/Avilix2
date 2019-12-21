@@ -297,6 +297,299 @@
   }
 }
 
+.services__header .services__tab-link {
+  white-space: nowrap;
+  width: 100%;
+}
+
+@media only screen and(max-width: 768px) {
+  .header {
+    border-bottom: none;
+  }
+  .fixed {
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+  }
+
+  .company .s-title {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 16px;
+  }
+
+  .company .history {
+    margin-top: 40px;
+    max-width: 100%;
+  }
+
+  .company .history__descr {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .company .work {
+    padding: 40px 0;
+    padding-top: 22px;
+  }
+
+  .company .work__card {
+    padding: 32px;
+  }
+
+  .work__card-title {
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 12px;
+  }
+
+  .work__card-subtitle {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 24px;
+  }
+
+  .work__card-descr {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 12px;
+  }
+
+  .licenses {
+    padding-top: 0;
+  }
+
+  .licenses__download-pdf {
+    padding: 32px;
+  }
+
+  .licenses__img {
+    max-width: 36px;
+    margin-right: 24px;
+  }
+
+  .licenses__title {
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 12px;
+  }
+
+  .licenses__title p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .sertificates {
+    padding-top: 0;
+  }
+
+  .work__cards {
+    margin-top: 24px;
+  }
+
+  .work__cards-btn {
+    width: 100%;
+  }
+
+  .sertificates__item {
+    padding: 32px;
+    padding-bottom: 35px;
+  }
+
+  .sertificates__title {
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 12px;
+  }
+
+  .sertificates__descr {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .sertificates img {
+    max-width: 104px;
+  }
+
+  .sertificates__list {
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+
+  .sertificates {
+    padding-bottom: 0;
+  }
+
+  .c-contacts__content {
+    flex-direction: column;
+  }
+
+  .c-contacts__right {
+    order: 1;
+    width: 100%;
+  }
+
+  .c-contacts__left {
+    order: 2;
+    width: 100%;
+  }
+
+  .c-contacts__info {
+    display: flex;
+    margin-left: 0;
+  }
+
+  .c-contacts__wrap {
+    margin-right: 6%;
+  }
+
+  .c-contacts__wrap a {
+    display: block;
+  }
+
+  .c-contacts__wrap p {
+    display: inline-block;
+    margin-right: 27px;
+  }
+
+  .c-contacts__name {
+    font-size: 16px;
+    line-height: 18px;
+    display: block;
+  }
+
+  .c-contacts__phone {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 12px;
+  }
+
+  .c-contacts__right {
+    margin-bottom: 14px;
+  }
+
+  .company .footer {
+    margin-top: 0;
+  }
+
+  .services__header .services__tab-link {
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+}
+
+.company .services__header {
+  background-color: #fff;
+}
+
+@media only screen and(max-width: 577px) {
+  .company .services {
+    top: 53px;
+  }
+
+  .company .services__header .wrapper {
+    padding-left: 20px;
+    padding-right: 0;
+  }
+
+  .company .services__header .wrapper .slick-list {
+    overflow: visible;
+  }
+
+  .services__header .services__tab-link {
+    white-space: nowrap;
+    width: fit-content;
+    margin-right: 37px;
+    font-size: 13px;
+    line-height: 14px;
+  }
+
+  .company .work {
+    padding-top: 20px;
+  }
+
+  .work__cards {
+    flex-direction: column;
+  }
+
+  .company .work__card {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .work__card-subtitle {
+    margin-bottom: 16px;
+  }
+
+  .work__cards-btn {
+    text-align: center;
+  }
+
+  .company .work__card {
+    padding: 24px;
+  }
+  .company .work {
+    padding-bottom: 0;
+  }
+
+  .licenses__download-pdf {
+    flex-direction: column;
+  }
+
+  .licenses__img {
+    align-self: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .licenses__title p {
+    max-width: 232px;
+    margin-bottom: 60px;
+  }
+
+  .licenses__title {
+    align-self: flex-start;
+  }
+
+  .licenses__download-link {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .licenses {
+    padding-bottom: 10px;
+  }
+
+  .sertificates__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .sertificates__item {
+    display: none;
+  }
+
+  .sertificates__item:nth-child(1), .sertificates__item:nth-child(2), .sertificates__item:nth-child(3), .sertificates__item:nth-child(6) {
+    display: flex;
+  }
+
+  .c-contacts__info {
+    flex-direction: column;
+  }
+
+  .c-contacts__wrap p {
+    display: block;
+  }
+
+  .c-contacts__inn {
+    margin-bottom: 12px;
+  }
+
+  .c-contacts__wrap {
+    margin-bottom: 24px;
+  }
+}
+
 
 
 
