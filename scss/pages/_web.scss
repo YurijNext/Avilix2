@@ -7,9 +7,11 @@
   position: static;
 }
 
-.web .header {
+
+  .web .header {
   padding-bottom: 16px;
   background-color: #fff;
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2) !important;
 }
 
 .web .footer {
@@ -156,6 +158,18 @@ h4.for-what__title {
   }
 }
 
+.services {
+  padding-bottom: 0;
+}
+
+.other__slide-content {
+  background-color: #fff;
+}
+
+.slick-prev:before, .slick-next:before {
+  opacity: 0;
+}
+
 .input-label {
   z-index: 1;
 }
@@ -201,6 +215,7 @@ h4.for-what__title {
     padding: 0 40px;
     overflow: hidden;
     top: 114px;
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2) !important;
   }
   .web .for-what__left-column {
     padding: 0 40px;
@@ -294,7 +309,11 @@ h4.for-what__title {
 
   .web .for-what__right-column {
     top: 60px;
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+    border-top: 1px solid rgba(117, 137, 165, 0.2);
   }
+
+
 
   .web .for-what__title {
     font-size: 26px;
@@ -311,6 +330,7 @@ h4.for-what__title {
   .web .header {
     padding: 12px 0;
     padding-bottom: 0;
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2) !important;
   }
 
   .web .for-what__left-column {
@@ -347,6 +367,17 @@ h4.for-what__title {
 
   .web .other__slide-content {
     padding: 24px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .services__header .services__tab-link {
+    white-space: nowrap;
+    width: fit-content;
+    margin-right: 40px !important;
+    margin-left: 10px !important;
+    font-size: 13px;
+    line-height: 14px;
   }
 }
 

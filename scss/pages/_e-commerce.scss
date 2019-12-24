@@ -34,6 +34,10 @@
   margin-right: 24px;
 }
 
+.brad-crambs {
+  z-index: 2;
+}
+
 
 @media only screen and (max-width: 940px) {
   .brad-crambs {
@@ -72,6 +76,14 @@
     }
   }
 
+  .e-commerce  .for-what__right-column {
+    border-bottom: 1px solid rgba(117, 137, 165, 0.2);
+  }
+
+  .for-what__tabs .slick-track {
+    border-bottom: none;
+  }
+
   //.e-commerce .for-what__right-column {
   //  padding-left: 40px;
   //}
@@ -100,6 +112,8 @@
 
 
 }
+
+
 
 @media only screen and (max-width: 577px) {
   .for-what__title {

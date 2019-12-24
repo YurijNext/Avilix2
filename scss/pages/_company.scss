@@ -18,6 +18,7 @@
     top: 82px;
     background-color: #fff;
     padding-bottom: 0;
+    z-index: 2;
   }
 
   .main-section__text {
@@ -210,6 +211,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px dashed rgba(117, 137, 165, 0.2);
     a {
       font-weight: 500;
       font-size: 16px;
@@ -563,7 +565,7 @@
   .sertificates__list {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
   .sertificates__item {
     display: none;

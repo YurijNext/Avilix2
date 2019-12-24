@@ -112,8 +112,11 @@ $(document).ready(function() {
         $('.services__slide').each(function() {
             if(scrollTop >= $(this).offset().top - offset2) {
                 let sectionID = $(this).attr('id');
-                $('.services__tab-link').removeClass('active');
+                let dataIndex = $(this).attr('data-index');
+                console.log(dataIndex);
+;                $('.services__tab-link').removeClass('active');
                 $('[href="#' + sectionID + '"]').addClass('active');
+                $('.services__header .wrapper').slick('slickGoTo', dataIndex);
 
                 $('.s-figure').removeClass('visible');
 
