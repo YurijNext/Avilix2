@@ -251,7 +251,6 @@ h3 {
   font-size: 20px;
   line-height: 1;
   opacity: .75;
-  color: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -289,6 +288,21 @@ h3 {
   border: 3px solid #fff;
   border-radius: 8px;
 }
+.non-transform {
+  transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.js-partners .slick-slide {
+  transition: all .2s ease-in-out !important;
+}
+
+.trs-right {
+  transform: translateX(40%);
+}
+
+.trs-left {
+  transform: translateX(-40%);
+}
 
 .bbi {
   border: 1px solid rgba(117, 137, 165, 0.2) !important;
@@ -318,6 +332,65 @@ input, button, textarea {
     padding: 0 20px;
   }
 }
+
+@media only screen and (min-width: 577px) {
+  .trs-right {
+    transform: translateX(0);
+  }
+
+  .trs-left {
+    transform: translateX(0);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .for-what__tab:first-child .for-what__tab-link {
+    padding-top: 20px !important;
+  }
+}
+
+
+
+
+
+.for-what__tabs .slick-track {
+  transition: all .3s ease-out !important;
+}
+
+.sl-left {
+  transform: translate3d(-0.6%, 0, 0) !important;
+}
+
+
+@media only screen and (max-width: 650px) {
+  .sl-left {
+    transform: translate3d(-1%, 0, 0) !important;
+  }
+
+}
+
+@media only screen and (max-width: 577px) {
+  .sl-left {
+    transform: translate3d(-0.8%, 0, 0) !important;
+  }
+
+}
+
+@media only screen and (max-width: 548px) {
+  .sl-left {
+    transform: translate3d(-1%, 0, 0) !important;
+  }
+
+}
+@media only screen and (max-width: 437px) {
+  .sl-left {
+    transform: translate3d(-1.2%, 0, 0) !important;
+  }
+
+}
+
+
+
 
 
 

@@ -271,6 +271,7 @@
     background: none;
     cursor: pointer;
 
+
     &:hover {
       opacity: 0.8;
     }
@@ -322,6 +323,10 @@
 
     .form-title {
       max-width: 190px;
+    }
+
+    .order-close {
+      right: 24px;
     }
 
     .input-label {

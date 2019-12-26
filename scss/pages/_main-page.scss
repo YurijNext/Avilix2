@@ -232,6 +232,7 @@
   padding: 45px 0;
   border-bottom: 1px solid rgba(117, 137, 165, 0.2);
   overflow: hidden;
+  min-height: 146px;
 
   .wrapper {
     display: flex;
@@ -255,6 +256,10 @@
     line-height: 18px;
     color: $grey;
   }
+}
+
+.index .services {
+  padding-bottom: 120px;
 }
 
 .industry {
@@ -444,6 +449,8 @@
     max-width: 530px;
   }
 
+
+
   .services__tab-link {
     width: 31.88%;
   }
@@ -531,6 +538,11 @@
     color: #fff;
   }
 
+  .index .advantages {
+    padding: 48px 0;
+    min-height: 176px;
+  }
+
   .advantages p {
     max-width: 150px;
     margin: 0 auto;
@@ -542,7 +554,10 @@
   }
   .advantages {
     padding: 48px 0;
+    min-height: 146px;
   }
+
+
 
   .industry {
     padding-top: 40px;

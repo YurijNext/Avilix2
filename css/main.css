@@ -288,7 +288,6 @@ h3 {
   font-size: 20px;
   line-height: 1;
   opacity: .75;
-  color: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -338,6 +337,29 @@ h3 {
           border-radius: 8px;
 }
 
+.non-transform {
+  -webkit-transform: translate3d(0px, 0px, 0px) !important;
+          transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.js-partners .slick-slide {
+  -webkit-transition: all .2s ease-in-out !important;
+  -o-transition: all .2s ease-in-out !important;
+  transition: all .2s ease-in-out !important;
+}
+
+.trs-right {
+  -webkit-transform: translateX(40%);
+      -ms-transform: translateX(40%);
+          transform: translateX(40%);
+}
+
+.trs-left {
+  -webkit-transform: translateX(-40%);
+      -ms-transform: translateX(-40%);
+          transform: translateX(-40%);
+}
+
 .bbi {
   border: 1px solid rgba(117, 137, 165, 0.2) !important;
 }
@@ -379,6 +401,64 @@ input, button, textarea {
 @media only screen and (max-width: 577px) {
   .wrapper {
     padding: 0 20px;
+  }
+}
+
+@media only screen and (min-width: 577px) {
+  .trs-right {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .trs-left {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .for-what__tab:first-child .for-what__tab-link {
+    padding-top: 20px !important;
+  }
+}
+
+.for-what__tabs .slick-track {
+  -webkit-transition: all .3s ease-out !important;
+  -o-transition: all .3s ease-out !important;
+  transition: all .3s ease-out !important;
+}
+
+.sl-left {
+  -webkit-transform: translate3d(-0.6%, 0, 0) !important;
+          transform: translate3d(-0.6%, 0, 0) !important;
+}
+
+@media only screen and (max-width: 650px) {
+  .sl-left {
+    -webkit-transform: translate3d(-1%, 0, 0) !important;
+            transform: translate3d(-1%, 0, 0) !important;
+  }
+}
+
+@media only screen and (max-width: 577px) {
+  .sl-left {
+    -webkit-transform: translate3d(-0.8%, 0, 0) !important;
+            transform: translate3d(-0.8%, 0, 0) !important;
+  }
+}
+
+@media only screen and (max-width: 548px) {
+  .sl-left {
+    -webkit-transform: translate3d(-1%, 0, 0) !important;
+            transform: translate3d(-1%, 0, 0) !important;
+  }
+}
+
+@media only screen and (max-width: 437px) {
+  .sl-left {
+    -webkit-transform: translate3d(-1.2%, 0, 0) !important;
+            transform: translate3d(-1.2%, 0, 0) !important;
   }
 }
 
@@ -784,6 +864,9 @@ input, button, textarea {
   }
   .form-title {
     max-width: 190px;
+  }
+  .order-close {
+    right: 24px;
   }
   .input-label {
     font-size: 13px;
@@ -1684,6 +1767,7 @@ input, button, textarea {
   padding: 45px 0;
   border-bottom: 1px solid rgba(117, 137, 165, 0.2);
   overflow: hidden;
+  min-height: 146px;
 }
 
 .advantages .wrapper {
@@ -1710,6 +1794,10 @@ input, button, textarea {
   font-size: 16px;
   line-height: 18px;
   color: #7589A5;
+}
+
+.index .services {
+  padding-bottom: 120px;
 }
 
 .industry {
@@ -1968,6 +2056,10 @@ input, button, textarea {
     margin: 13px 0;
     color: #fff;
   }
+  .index .advantages {
+    padding: 48px 0;
+    min-height: 176px;
+  }
   .advantages p {
     max-width: 150px;
     margin: 0 auto;
@@ -1978,6 +2070,7 @@ input, button, textarea {
   }
   .advantages {
     padding: 48px 0;
+    min-height: 146px;
   }
   .industry {
     padding-top: 40px;

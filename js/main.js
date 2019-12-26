@@ -85,49 +85,154 @@ $(document).ready(function() {
         )
     });
 
+
+    $(window).on('scroll', function() {
+        if($(window).width() > 700) {
+            $('.services__header .slick-track').addClass('non-transform');
+        } else {
+            $('.services__header .slick-track').removeClass('non-transform');
+        }
+    });
+
+    $(window).on('load', function() {
+        if($(window).width() > 700) {
+            $('.services__header .slick-track').addClass('non-transform');
+        } else {
+            $('.services__header .slick-track').removeClass('non-transform');
+        }
+    });
+
+
+
     const offset = 400;
     const offset2 = 500;
+    let reverse = false;
+
+    function inWindow(s){
+        var scrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var el = s;
+        var result;
+
+        var offset = el.offset();
+
+        if(scrollTop <= offset.top + 200 && (el.height() + offset.top) < (scrollTop + windowHeight)) {
+            result = true;
+        }
+
+        return result;
+    }
+
     $(window).scroll(function() {
 
         let scrollTop = $(this).scrollTop();
 
-        $('.for-what__section').each(function() {
-            if(scrollTop >= $(this).offset().top - offset) {
-                let sectionID = $(this).attr('id');
-                $('.for-what__tab-link').removeClass('tab-link--active');
 
-                $('[href="#' + sectionID + '"]').addClass('tab-link--active');
+
+        $('.for-what__section').each(function() {
+
+            if($(window).width() < 768) {
+                if($(this).offset().top - scrollTop > 0 ) {
+                    let sectionID = $(this).attr('id');
+                    let dataIndex = Number($(this).attr("data-index"));
+
+                    $('.for-what__tabs').slick('slickGoTo', dataIndex);
+
+                    $('.for-what__tab-link').removeClass('tab-link--active');
+
+                    $('.for-what__tabs .slick-current a').addClass('tab-link--active');
+
+                }
+            } else {
+                if(scrollTop >= $(this).offset().top - offset) {
+                    let sectionID = $(this).attr('id');
+
+                    $('.for-what__tab-link').removeClass('tab-link--active');
+                    $('[href="#' + sectionID + '"]').addClass('tab-link--active');
+
+                }
             }
-        })
+
+
+        });
 
         $('.c-section').each(function() {
-            if(scrollTop >= $(this).offset().top - offset) {
-                let sectionID = $(this).attr('id');
-                $('.c-tab-link').removeClass('active');
 
-                $('[href="#' + sectionID + '"]').addClass('active');
+            if($(window).width() < 768) {
+                if($(this).offset().top - scrollTop > 0 ) {
+                    let dataIndex = Number($(this).attr("data-index"));
+
+                    $('.services__header .wrapper').slick('slickGoTo', dataIndex);
+
+                    $('.services__tab-link ').removeClass('active');
+
+                    $('.services__header .wrapper .slick-current .c-tab-link').addClass('active');
+
+                }
+            } else {
+                if (scrollTop >= $(this).offset().top - offset2) {
+                    let sectionID = $(this).attr('id');
+                    $('.c-tab-link').removeClass('active');
+
+                    $('[href="#' + sectionID + '"]').addClass('active');
+                }
             }
-        })
+
+        });
+
 
         $('.services__slide').each(function() {
-            if(scrollTop >= $(this).offset().top - offset2) {
-                let sectionID = $(this).attr('id');
-                let dataIndex = $(this).attr('data-index');
-                console.log(dataIndex);
-;                $('.services__tab-link').removeClass('active');
-                $('[href="#' + sectionID + '"]').addClass('active');
-                $('.services__header .wrapper').slick('slickGoTo', dataIndex);
 
-                $('.s-figure').removeClass('visible');
+            if($(window).width() < 768) {
 
-                $('[data-index="' + sectionID + '"]').addClass('visible');
+                    if(inWindow($(this))) {
+                        let dataIndex = Number($(this).attr("data-index"));
+                        let sectionID = $(this).attr('id');
+
+                            console.log(sectionID);
 
 
+
+                            if(sectionID == '03' && reverse == false) {
+                                reverse = true;
+                                console.log(reverse);
+                                $('.services__header .wrapper').slick('slickGoTo', 1);
+
+                            }
+
+                            if(sectionID == '02') {
+                                console.log(reverse);
+                            }
+
+                        if(reverse == true && sectionID == '01') {
+                            console.log('ok');
+                            reverse = false;
+                            $('.services__header .wrapper').slick('slickGoTo', 0);
+
+                        }
+
+
+
+                            $('.services__tab-link ').removeClass('active');
+                            // $('.services__header .wrapper .slick-current').addClass('active');
+                            $('[href="#' + sectionID + '"]').addClass('active');
+                    }
+
+            } else {
+                if (inWindow($(this))) {
+                    let sectionID = $(this).attr('id');
+                    $('.services__tab-link ').removeClass('active');
+
+                    $('[href="#' + sectionID + '"]').addClass('active');
+                }
             }
 
-        })
+
+        });
 
     });
+
+
 
     $('.js-partners').slick({
         infinite: true,
@@ -146,15 +251,95 @@ $(document).ready(function() {
             {
                 breakpoint: 577,
                 settings: {
+                    useCss: false,
+                    useTransform: false,
                     centerMode: true,
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    centerPadding: '40px',
+                    centerPadding: '60px',
                     arrows: false,
                 }
             },
         ]
     });
+
+    $(window).on('resize', function() {
+        if($(window).width() < 577) {
+
+            $('.js-partners .slick-slide').removeClass('trs-right trs-left');
+
+            $('.js-partners .slick-slide').each(function() {
+                if($(this).hasClass('slick-current')) {
+                    console.log('sd');
+                } else {
+                    $(this).addClass('trs-right');
+                }
+            });
+
+            $('.js-partners .slick-current + .slick-slide').addClass('trs-left');
+
+
+            $('.js-partners').on('afterChange', function(event, slick, currentSlide, nextSlide) {
+
+                $('.js-partners .slick-slide').removeClass('trs-right trs-left');
+
+                $('.js-partners .slick-slide').each(function() {
+                    if($(this).hasClass('slick-current')) {
+                        console.log('sd');
+                    } else {
+                        $(this).addClass('trs-right');
+                    }
+                });
+
+                $('.js-partners .slick-current + .slick-slide').addClass('trs-left');
+
+
+                console.log(currentSlide)
+            });
+        } else {
+            $('.js-partners .slick-slide').removeClass('trs-right trs-left');
+        }
+    });
+
+    $(window).on('load', function() {
+        if($(window).width() < 577) {
+
+            $('.js-partners .slick-slide').removeClass('trs-right trs-left');
+
+            $('.js-partners .slick-slide').each(function() {
+                if($(this).hasClass('slick-current')) {
+                    console.log('sd');
+                } else {
+                    $(this).addClass('trs-right');
+                }
+            });
+
+            $('.js-partners .slick-current + .slick-slide').addClass('trs-left');
+
+
+            $('.js-partners').on('afterChange', function(event, slick, currentSlide, nextSlide) {
+
+                $('.js-partners .slick-slide').removeClass('trs-right trs-left');
+
+                $('.js-partners .slick-slide').each(function() {
+                    if($(this).hasClass('slick-current')) {
+                        console.log('sd');
+                    } else {
+                        $(this).addClass('trs-right');
+                    }
+                });
+
+                $('.js-partners .slick-current + .slick-slide').addClass('trs-left');
+
+
+                console.log(currentSlide)
+            });
+        } else {
+            $('.js-partners .slick-slide').removeClass('trs-right trs-left');
+        }
+    });
+
+
 
     $('.js-industry').slick({
         infinite: true,
@@ -198,6 +383,8 @@ $(document).ready(function() {
                 {
                     breakpoint: 700,
                     settings: {
+                        infinite: false,
+                        focusOnSelect: true,
                         slidesToShow: 2,
                         slidesToScroll: 1,
                     }
@@ -570,8 +757,146 @@ $(document).ready(function() {
     });
 
 
+    /** SHUFFLE LETTERS **/
+    (function($) {
+
+        $.fn.shuffleLetters = function(prop) {
+
+            var options = $.extend({
+                "step": 3, // How many times should the letters be changed
+                "fps": 25, // Frames Per Second
+                "text": "", // Use this text instead of the contents
+                "callback": function() {} // Run once the animation is complete
+            }, prop)
+
+            return this.each(function() {
+                var el = $(this),
+                    str = "";
+
+                // Preventing parallel animations using a flag;
+                if (el.data('animated')) {
+                    return true;
+                }
+                el.data('animated', true);
+
+                if (options.text) {
+                    str = options.text.split('');
+                } else {
+                    str = el.text().split('');
+                }
+
+                // The types array holds the type for each character;
+                // Letters holds the positions of non-space characters;
+
+                var types = [],
+                    letters = [];
+
+                // Looping through all the chars of the string
+
+                for (var i = 0; i < str.length; i++) {
+
+                    var ch = str[i];
+
+                    if (ch == " ") {
+                        types[i] = "space";
+                        continue;
+                    } else if (/[a-z]/.test(ch)) {
+                        types[i] = "lowerLetter";
+                    } else if (/[A-Z]/.test(ch)) {
+                        types[i] = "upperLetter";
+                    } else {
+                        types[i] = "symbol";
+                    }
+
+                    letters.push(i);
+                }
+
+                el.html("");
+
+                // Self executing named function expression:
+
+                (function shuffle(start) {
+
+                    // This code is run options.fps times per second
+                    // and updates the contents of the page element
+
+                    var i,
+                        len = letters.length,
+                        strCopy = str.slice(0); // Fresh copy of the string
+
+                    if (start > len) {
+
+                        // The animation is complete. Updating the
+                        // flag and triggering the callback;
+
+                        el.data('animated', false);
+                        options.callback(el);
+                        return;
+                    }
+
+                    // All the work gets done here
+                    for (i = Math.max(start, 0); i < len; i++) {
+
+                        // The start argument and options.step limit
+                        // the characters we will be working on at once
+
+                        if (i < start + options.step) {
+                            // Generate a random character at thsi position
+                            strCopy[letters[i]] = randomChar(types[letters[i]]);
+                        } else {
+                            strCopy[letters[i]] = "";
+                        }
+                    }
+
+                    el.text(strCopy.join(""));
+
+                    setTimeout(function() {
+
+                        shuffle(start + 1);
+
+                    }, 1000 / options.fps);
+
+                })(-options.step);
 
 
+            });
+        };
+
+        function randomChar(type) {
+            var pool = "";
+
+            if (type == "lowerLetter") {
+                pool = "abcdefghijklmnopqrstuvwxyz0123456789";
+            } else if (type == "upperLetter") {
+                pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            } else if (type == "symbol") {
+                pool = ",.?/\\(^)![]{}*&^%$#'\"";
+            }
+
+            var arr = pool.split('');
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+    })(jQuery);
+
+
+    $(function() {
+        const el = $(".dummy");
+
+        $.each( el, function( key, value ) {
+            el.shuffleLetters();
+
+            // function shuffle(text) {
+            //     el.shuffleLetters({text: text});
+            // };
+            //
+            // const arr = ['Первый скучный текст', 'текст углеродный :D', 'мифический текст', 'бессмертный текст'];
+            // let i = 0;
+            setInterval(function() {
+                el.shuffleLetters();
+            }, 4000)
+        });
+    });
 
 
 });
